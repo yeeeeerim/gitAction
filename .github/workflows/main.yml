@@ -29,6 +29,16 @@ jobs:
         run: chmod +x ./gradlew
         shell: bash
 
+      - name: Set Up MySQL
+        uses: samin/mysql-action@v1
+        with:
+          host port: 3306
+          container port: 3306
+          character set server: 'utf8'
+          mysql database: 'studycafe'
+          mysql user: 'root'
+          mysql root password: '1234'
+
       - name: Build with Gradle
         run: ./gradlew build
         shell: bash
